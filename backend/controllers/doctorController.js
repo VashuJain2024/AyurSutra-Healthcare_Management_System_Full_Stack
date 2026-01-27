@@ -78,7 +78,7 @@ const appointmentDetails = async (req, res) => {
     if (appointmentData && appointmentData.docId.toString() === docId) {
       res.json({ success: true, appointmentData });
     } else {
-      res.json({ success: false, message: "Appointment not found" });
+      res.json({ success: false, message: "Appointment Not Found" });
     }
   } catch (error) {
     console.log(error);
@@ -209,7 +209,7 @@ const deleteRecord = async (req, res) => {
     const { recordId } = req.body;
     const record = await recordModel.findById(recordId);
     if (!record) {
-      return res.json({ success: false, message: "Record not found" });
+      return res.json({ success: false, message: "Record Not Found" });
     }
 
     await recordModel.findByIdAndDelete(recordId);
@@ -228,7 +228,7 @@ const updateRecord = async (req, res) => {
 
     const record = await recordModel.findById(recordId);
     if (!record) {
-      return res.json({ success: false, message: "Record not found" });
+      return res.json({ success: false, message: "Record Not Found" });
     }
 
     let reportUrl = record.reports[0] || ""; // Keep existing if not changed

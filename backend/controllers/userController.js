@@ -18,12 +18,12 @@ const registerUser = async (req, res) => {
 
     // validating email format
     if (!validator.isEmail(email)) {
-      return res.json({ success: false, message: "enter a valid email" });
+      return res.json({ success: false, message: "Enter a valid email" });
     }
 
     // validating strong password
     if (password.length < 8) {
-      return res.json({ success: false, message: "enter a strong password" });
+      return res.json({ success: false, message: "Enter a strong password" });
     }
 
     // hashing user password
@@ -64,7 +64,7 @@ const loginUser = async (req, res) => {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       res.json({ success: true, token });
     } else {
-      res.json({ success: false, message: "Invalid credentials" });
+      res.json({ success: false, message: "Invalid Credentials" });
     }
   } catch (error) {
     console.log(error);
@@ -144,7 +144,7 @@ const updateDosha = async (req, res) => {
     let { dosha } = req.body;
 
     if (!dosha) {
-      return res.json({ success: false, message: "Dosha data missing" });
+      return res.json({ success: false, message: "Dosha Data Missing" });
     }
 
     if (typeof dosha === "string") {
@@ -159,7 +159,7 @@ const updateDosha = async (req, res) => {
       kapha: Kapha,
     });
 
-    res.json({ success: true, message: "Dosha updated successfully" });
+    res.json({ success: true, message: "Dosha Updated Successfully!" });
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
@@ -175,15 +175,15 @@ const bookAppointment = async (req, res) => {
     const docData = await doctorModel.findById(docId).select("-password");
 
     if (!docData.available) {
-      return res.json({ success: false, message: "Doctor not available" });
+      return res.json({ success: false, message: "Doctor Not Available" });
     }
 
     let slots_booked = docData.slots_booked;
 
     // checking for slot availability
     if (slots_booked[slotDate]) {
-      if (slots_booked[slotDate].includes(slotTime)) {
-        return res.json({ success: false, message: "Slot not available" });
+      if (slots_booked[slotDate].includes(slotTime)) {  
+        return res.json({ success: false, message: "Slot Not Available" });
       } else {
         slots_booked[slotDate].push(slotTime);
       }
@@ -241,12 +241,12 @@ const cancelAppointment = async (req, res) => {
     const appointmentData = await appointmentModel.findById(appointmentId);
 
     if (!appointmentData) {
-      return res.json({ success: false, message: "Appointment not found" });
+      return res.json({ success: false, message: "Appointment Not Found" });
     }
 
     // Verify appointment user matches logged-in user
     if (appointmentData.userId.toString() !== userId.toString()) {
-      return res.json({ success: false, message: "Unauthorized action" });
+      return res.json({ success: false, message: "Unauthorized Action" });
     }
 
     await appointmentModel.findByIdAndUpdate(appointmentId, {
@@ -326,11 +326,11 @@ const deleteRecord = async (req, res) => {
 
     const record = await recordModel.findById(recordId);
     if (!record) {
-      return res.json({ success: false, message: "Record not found" });
+      return res.json({ success: false, message: "Record Not Found" });
     }
 
     if (record.user.toString() !== userId.toString()) {
-      return res.json({ success: false, message: "Unauthorized action" });
+      return res.json({ success: false, message: "Unauthorized Action" });
     }
 
     await recordModel.findByIdAndDelete(recordId);
@@ -352,13 +352,13 @@ const updateRecord = async (req, res) => {
     const record = await recordModel.findById(recordId);
 
     if (!record) {
-      console.log("Record not found");
-      return res.json({ success: false, message: "Record not found" });
+      console.log("Record Not Found");
+      return res.json({ success: false, message: "Record Not Found" });
     }
 
     if (record.user.toString() !== userId.toString()) {
       console.log("Unauthorized: Record user", record.user, "Request user", userId);
-      return res.json({ success: false, message: "Unauthorized action" });
+      return res.json({ success: false, message: "Unauthorized Action" });
     }
 
     // Handle File
