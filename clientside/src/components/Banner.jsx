@@ -11,7 +11,7 @@ const Banner = () => {
   console.log(userData);
 
   return (
-    <div className="flex bg-[#656D4A] rounded-lg px-6 sm:px-10 md:px-14 lg:px-12 my-20 md:mx-10 overflow-hidden">
+    <div className="flex bg-[#656D4A] rounded-lg px-6 sm:px-10 md:px-14 lg:px-12 my-20 md:mx-10">
       {/* ---------- Left Side -------- */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}

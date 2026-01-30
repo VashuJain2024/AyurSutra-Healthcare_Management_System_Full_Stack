@@ -11,6 +11,8 @@ import {
   addRecord,
   deleteRecord,
   updateRecord,
+  paymentRazorpay,
+  verfiyRazorpay,
 } from "../controllers/userController.js";
 import authUser from "../middlewares/authUser.js";
 import upload from "../middlewares/multer.js";
@@ -34,5 +36,7 @@ userRouter.post("/cancel-appointment", authUser, cancelAppointment);
 userRouter.post("/add-record", upload.single("reports"), authUser, addRecord);
 userRouter.post("/delete-record", authUser, deleteRecord);
 userRouter.post("/update-record", upload.single("reports"), authUser, updateRecord);
+userRouter.post("/payment-razorpay", authUser, paymentRazorpay);
+userRouter.post("/verify-razorpay", authUser, verfiyRazorpay);
 
 export default userRouter;
