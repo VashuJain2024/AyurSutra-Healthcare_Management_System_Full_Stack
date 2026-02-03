@@ -30,7 +30,7 @@ const AppContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -52,7 +52,7 @@ const AppContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log("User Fetch Error:", error.message);
+      // console.log("User Fetch Error:", error.message);
       localStorage.removeItem("token");
       setToken(false);
       setUserData(false);

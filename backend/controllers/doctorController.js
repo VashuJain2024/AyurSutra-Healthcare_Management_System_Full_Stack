@@ -15,7 +15,7 @@ const changeAvailability = async (req, res) => {
     });
     res.json({ success: true, message: "Availability changed" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -26,7 +26,7 @@ const doctorList = async (req, res) => {
 
     res.json({ success: true, doctors });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -50,7 +50,7 @@ const loginDoctor = async (req, res) => {
       res.json({ success: false, message: "Invalid credentials" });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -63,7 +63,7 @@ const appointmentsDoctor = async (req, res) => {
 
     res.json({ success: true, appointments });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -81,7 +81,7 @@ const appointmentDetails = async (req, res) => {
       res.json({ success: false, message: "Appointment Not Found" });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -101,7 +101,7 @@ const appointmentComplete = async (req, res) => {
       return res.json({ success: false, message: "Mark Failed" });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -121,7 +121,7 @@ const appointmentCancel = async (req, res) => {
       return res.json({ success: false, message: "Cancellation Failed" });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -157,7 +157,7 @@ const doctorDashboard = async (req, res) => {
 
     res.json({ success: true, dashData });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -170,7 +170,7 @@ const doctorProfile = async (req, res) => {
 
     res.json({ success: true, profileData });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -184,7 +184,7 @@ const updateDoctorProfile = async (req, res) => {
 
     res.json({ success: true, message: "Profile Updated" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -198,7 +198,7 @@ const getPatient = async (req, res) => {
 
     res.json({ success: true, patientData: { ...patientData.toObject(), medicalHistory } });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -215,7 +215,7 @@ const deleteRecord = async (req, res) => {
     await recordModel.findByIdAndDelete(recordId);
     res.json({ success: true, message: "Record Deleted Successfully" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -257,7 +257,7 @@ const updateRecord = async (req, res) => {
     await recordModel.findByIdAndUpdate(recordId, updateData);
     res.json({ success: true, message: "Record Updated Successfully" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };

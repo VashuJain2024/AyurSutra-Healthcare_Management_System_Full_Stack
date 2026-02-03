@@ -30,7 +30,7 @@ const DoctorContextProvider = (props) => {
         return null;
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
       return null;
     }
@@ -47,7 +47,7 @@ const DoctorContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -60,12 +60,12 @@ const DoctorContextProvider = (props) => {
       );
       if (data.success) {
         setAppointments(data.appointments);
-        console.log(data.appointments);
+        // console.log(data.appointments);
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -85,7 +85,7 @@ const DoctorContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -105,7 +105,7 @@ const DoctorContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -118,12 +118,12 @@ const DoctorContextProvider = (props) => {
 
       if (data.success) {
         setDashData(data.dashData);
-        console.log(data.dashData);
+        // console.log(data.dashData);
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -135,10 +135,10 @@ const DoctorContextProvider = (props) => {
       });
       if (data.success) {
         setProfileData(data.profileData);
-        console.log(data.profileData);
+        // console.log(data.profileData);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -158,7 +158,7 @@ const DoctorContextProvider = (props) => {
         return false;
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
       return false;
     }
@@ -179,7 +179,7 @@ const DoctorContextProvider = (props) => {
         return false;
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
       return false;
     }

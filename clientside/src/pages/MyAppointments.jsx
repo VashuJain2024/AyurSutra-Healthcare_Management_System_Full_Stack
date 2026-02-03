@@ -44,7 +44,7 @@ const MyAppointments = () => {
         // console.log(data.appointments);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -64,7 +64,7 @@ const MyAppointments = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -88,7 +88,7 @@ const MyAppointments = () => {
             navigate("/my-appointments");
           }
         } catch (error) {
-          console.log(error);
+          // console.log(error);
           toast.error(error.message);
         }
       }
@@ -109,7 +109,7 @@ const MyAppointments = () => {
         initPay(data.order);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   }
@@ -196,13 +196,13 @@ const MyAppointments = () => {
 
                     {item.cancelled && !item.isCompleted && (
                       <button className="sm:min-w-48 py-2 border border-red-500 rounded text-red-500">
-                        Appointment cancelled
+                        Appointment Cancelled
                       </button>
                     )}
 
                     {item.isCompleted && item.payment && (
                       <button className="sm:min-w-48 py-2 border border-green-500 rounded text-green-500">
-                        Completed
+                        Appointment Completed
                       </button>
                     )}
                   </div>

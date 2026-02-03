@@ -36,7 +36,7 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem("dToken", data.token);
           setDToken(data.token);
-          console.log(data.token);
+          // console.log(data.token);
 
         } else {
           toast.error(data.message);
@@ -135,8 +135,8 @@ const Login = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setState(role)}
                   className={`flex-1 py-2 rounded-md font-medium transition-all ${state === role
-                      ? "bg-[#656D4A] text-white shadow-md"
-                      : "text-gray-600 hover:text-gray-800"
+                    ? "bg-[#656D4A] text-white shadow-md"
+                    : "text-gray-600 hover:text-gray-800"
                     }`}
                 >
                   {role}

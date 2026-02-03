@@ -44,7 +44,7 @@ const registerUser = async (req, res) => {
 
     res.json({ success: true, token });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -68,7 +68,7 @@ const loginUser = async (req, res) => {
       res.json({ success: false, message: "Invalid Credentials" });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -76,7 +76,7 @@ const loginUser = async (req, res) => {
 // API to get user profile data
 const getProfile = async (req, res) => {
   try {
-    console.log("UserID From Token:", req.userId);
+    // console.log("UserID From Token:", req.userId);
     const user = await userModel.findById(req.userId).select("-password").lean();
     if (!user) {
       return res.json({
@@ -113,7 +113,7 @@ const updateProfile = async (req, res) => {
       try {
         address = JSON.parse(address);
       } catch (err) {
-        console.log("Address Parse Error:", err);
+        // console.log("Address Parse Error:", err);
       }
     }
 
@@ -132,7 +132,7 @@ const updateProfile = async (req, res) => {
 
     res.json({ success: true, message: "Profile Updated Successfully!" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -216,7 +216,7 @@ const bookAppointment = async (req, res) => {
 
     res.json({ success: true, message: "Appointment Booked" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -229,7 +229,7 @@ const listAppointment = async (req, res) => {
 
     res.json({ success: true, appointments });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -271,7 +271,7 @@ const cancelAppointment = async (req, res) => {
     res.json({ success: true, message: "Appointment Cancelled" });
 
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -315,7 +315,7 @@ const addRecord = async (req, res) => {
 
     res.json({ success: true, message: "Record Added Successfully!" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -339,7 +339,7 @@ const deleteRecord = async (req, res) => {
 
     res.json({ success: true, message: "Record Deleted Successfully!" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -350,17 +350,17 @@ const updateRecord = async (req, res) => {
     const userId = req.userId;
     const { recordId, condition, description, symptoms, doctor, reports, date, notesRight, painScale, painDuration } = req.body;
 
-    console.log("Update Record Request:", { userId, recordId, body: req.body, file: req.file });
+    // console.log("Update Record Request:", { userId, recordId, body: req.body, file: req.file });
 
     const record = await recordModel.findById(recordId);
 
     if (!record) {
-      console.log("Record Not Found");
+      // console.log("Record Not Found");
       return res.json({ success: false, message: "Record Not Found" });
     }
 
     if (record.user.toString() !== userId.toString()) {
-      console.log("Unauthorized: Record user", record.user, "Request user", userId);
+      // console.log("Unauthorized: Record user", record.user, "Request user", userId);
       return res.json({ success: false, message: "Unauthorized Action" });
     }
 
@@ -395,7 +395,7 @@ const updateRecord = async (req, res) => {
     res.json({ success: true, message: "Record Updated Successfully!" });
 
   } catch (error) {
-    console.log("Update Record Error:", error);
+    // console.log("Update Record Error:", error);
     res.json({ success: false, message: error.message });
   }
 }
@@ -420,7 +420,7 @@ const paymentRazorpay = async (req, res) => {
     const order = await razorpayInstance.orders.create(options);
     res.json({ success: true, order });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 }
@@ -439,7 +439,7 @@ const verfiyRazorpay = async (req, res) => {
       res.json({ success: false, message: "Payment Failed" });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 }

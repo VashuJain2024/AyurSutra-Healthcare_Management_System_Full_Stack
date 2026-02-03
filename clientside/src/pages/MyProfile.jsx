@@ -56,7 +56,7 @@ const MyProfile = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -88,7 +88,7 @@ const MyProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Medical Record:", formData);
+    // console.log("Medical Record:", formData);
 
     try {
       const form = new FormData();
@@ -102,7 +102,7 @@ const MyProfile = () => {
       form.append("painScale", formData.painScale);
       form.append("painDuration", formData.painDuration);
 
-      console.log("Form Data:", editRecordId);
+      // console.log("Form Data:", editRecordId);
       const url = editRecordId
         ? backendUrl + "/api/user/update-record"
         : backendUrl + "/api/user/add-record";
@@ -136,7 +136,7 @@ const MyProfile = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -170,7 +170,7 @@ const MyProfile = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };

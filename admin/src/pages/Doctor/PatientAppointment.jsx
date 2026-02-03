@@ -20,12 +20,12 @@ const PatientAppointment = () => {
     };
 
     const handleEditRecord = (record) => {
-        console.log("Edit record:", record);
+        // console.log("Edit record:", record);
         // Implement edit logic here
     };
 
     const handleDeleteRecord = (recordId) => {
-        console.log("Delete record:", recordId);
+        // console.log("Delete record:", recordId);
         // Implement delete logic here
     };
 

@@ -8,7 +8,7 @@ import { AppContext } from "../context/AppContext";
 const Banner = () => {
   const navigate = useNavigate();
   const { userData } = useContext(AppContext);
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <div className="flex bg-[#656D4A] rounded-lg px-6 sm:px-10 md:px-14 lg:px-12 my-20 md:mx-10">

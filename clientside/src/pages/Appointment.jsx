@@ -118,7 +118,7 @@ const Appointment = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };
@@ -132,7 +132,7 @@ const Appointment = () => {
   }, [docInfo]);
 
   useEffect(() => {
-    console.log(docSlots);
+    // console.log(docSlots);
   }, [docSlots]);
 
   return (

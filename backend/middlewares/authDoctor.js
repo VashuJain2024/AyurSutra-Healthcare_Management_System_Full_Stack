@@ -14,7 +14,7 @@ const authDoctor = async (req, res, next) => {
     req.body.docId = token_decode.id;
     next();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
