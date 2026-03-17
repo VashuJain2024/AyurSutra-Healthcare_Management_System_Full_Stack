@@ -22,6 +22,19 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization", "token", "dtoken"]
 }));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://main.dh45wfq6a57jf.amplifyapp.com");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE,PATCH");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, token, dtoken");
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  next();
+});
+
 // api endpoints
 app.use("/api/admin", adminRouter);
 app.use("/api/doctor", doctorRouter);
