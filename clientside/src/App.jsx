@@ -19,7 +19,10 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   const location = useLocation();
 
-  // Hide Navbar & Footer when NotFound page
+  const currentPath = location.pathname.endsWith("/") && location.pathname !== "/"
+    ? location.pathname.slice(0, -1)
+    : location.pathname;
+
   const validPaths = [
     "/",
     "/therapies",
@@ -33,9 +36,9 @@ const App = () => {
   ];
 
   const isValid =
-    validPaths.includes(location.pathname) ||
-    location.pathname.startsWith("/therapists/") ||
-    location.pathname.startsWith("/appointment/");
+    validPaths.includes(currentPath) ||
+    currentPath.startsWith("/therapists/") ||
+    currentPath.startsWith("/appointment/");
 
   const hideLayout = !isValid;
 
