@@ -19,7 +19,7 @@ app.use(cors({
   origin: true,  
   credentials: true, 
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "token", "dtoken"]
+  allowedHeaders: ["Content-Type", "Authorization", "token", "Token", "dtoken", "dToken", "atoken", "aToken"]
 }));
 
 app.use((req, res, next) => {
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", allowedOrigin);
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE,PATCH");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, token, dtoken");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, token, Token, dtoken, dToken, atoken, aToken");
   
   // Handle preflight requests
   if (req.method === 'OPTIONS') {
