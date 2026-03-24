@@ -16,25 +16,11 @@ connectCloudinary();
 // middlewares
 app.use(express.json());
 app.use(cors({
-  origin: true,  
-  credentials: true, 
+  origin: ["https://main.dh45wfq6a57jf.amplifyapp.com", "http://localhost:5173", "http://localhost:3000"],
+  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "token", "Token", "dtoken", "dToken", "atoken", "aToken"]
 }));
-
-app.use((req, res, next) => {
-  const allowedOrigin = req.headers.origin || "*";
-  res.header("Access-Control-Allow-Origin", allowedOrigin);
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE,PATCH");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, token, Token, dtoken, dToken, atoken, aToken");
-  
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-  next();
-});
 
 // api endpoints
 app.use("/api/admin", adminRouter);
