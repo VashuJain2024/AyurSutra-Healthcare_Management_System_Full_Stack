@@ -15,8 +15,24 @@ connectCloudinary();
 
 // middlewares
 app.use(express.json());
+const allowedOrigins = [
+  "https://main.dh45wfq6a57jf.amplifyapp.com",
+  "https://main.d2jmb3bmcw8v6f.amplifyapp.com",
+  "http://localhost:5173",
+  "http://localhost:3000"
+];
+
 app.use(cors({
-  origin: ["https://main.dh45wfq6a57jf.amplifyapp.com", "http://localhost:5173", "http://localhost:3000"],
+  origin: (origin, callback) => {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "token", "Token", "dtoken", "dToken", "atoken", "aToken"]
